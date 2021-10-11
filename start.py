@@ -18,25 +18,25 @@ import urllib.parse
 #使用邮件前记得修改下面参数
 	_user = "" #发件人
 	_pwd  = "" #授权码，不是密码
-#	_to   = "" #收件人
-#	try:
-#		text = u'发送时间: '+dicts['created_at']+u'<br>'
-#		text += u'发送内容: <br>'+dicts['text']+u'<br>'
+	_to   = "" #收件人
+	try:
+		text = u'发送时间: '+dicts['created_at']+u'<br>'
+		text += u'发送内容: <br>'+dicts['text']+u'<br>'
 		text += u'<br>来自: '+dicts['source']
-#
-#		msg=MIMEText(text.encode('utf-8'),'html','utf-8')
-#		msg['Subject']=u"宁关注的："+dicts['nickName']+u"发布微博啦"
-#		msg['From'] = formataddr(["微博实时关注",_user])
-#		msg['To'] = formataddr(["微博实时关注",_to])
-#		#print(msg.as_string())
-#		server = smtplib.SMTP_SSL('smtp.sina.com',465)
-#		server.login(_user,_pwd)
-#		server.sendmail(_user, _to, msg.as_string())
-#		server.quit()
-#	except Exception as e:
-#		print(e)
-#		flag = False
-#	return flag
+
+		msg=MIMEText(text.encode('utf-8'),'html','utf-8')
+		msg['Subject']=u"宁关注的："+dicts['nickName']+u"发布微博啦"
+		msg['From'] = formataddr(["微博实时关注",_user])
+		msg['To'] = formataddr(["微博实时关注",_to])
+		#print(msg.as_string())
+		server = smtplib.SMTP_SSL('smtp.sina.com',465)
+		server.login(_user,_pwd)
+		server.sendmail(_user, _to, msg.as_string())
+		server.quit()
+	except Exception as e:
+		print(e)
+		flag = False
+	return flag
 
 def main():
 	#微博部分

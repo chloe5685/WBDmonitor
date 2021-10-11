@@ -14,47 +14,15 @@ import urllib.parse
 #from email.header import Header
 
 #推送函数
-def notify(text):
-	flag = True
-	try:
-		qs = urllib.parse.urlencode(dict(
-			#一键免费推送信息到手机https://sre24.com/
-			token="",#token对应微信
-			msg=text,
-		))
-		rs = requests.get(url="https://sre24.com/api/v1/push?" + qs).json()
-		assert int(rs["code"] / 100) == 2, rs
-	except Exception as e:
-		print(e)
-		flag = False
-	return flag
 
-def wbweixin(dicts):
-	text = "宁关注的："+dicts['nickName']+"发布微博啦\n"
-	text += "发送时间: "+dicts['created_at']+"\n"
-	flag = notify(text)
-	return flag
-
-def bzweixin(dicts):
-	text = "宁关注的："+dicts['nickName']+"更新B站啦\n"
-	flag = notify(text)
-	return flag
-
-def dyweixin(dicts):
-	text = "宁关注的："+dicts['nickName']+"更新抖音啦\n"
-	flag = notify(text)
-	return flag
-
-#def sendMail(dicts):
-#	flag = True
-#	#使用邮件前记得修改下面参数
-#	_user = "" #发件人
-#	_pwd  = "" #授权码，不是密码
+#使用邮件前记得修改下面参数
+	_user = "" #发件人
+	_pwd  = "" #授权码，不是密码
 #	_to   = "" #收件人
 #	try:
 #		text = u'发送时间: '+dicts['created_at']+u'<br>'
 #		text += u'发送内容: <br>'+dicts['text']+u'<br>'
-#		text += u'<br>来自: '+dicts['source']
+		text += u'<br>来自: '+dicts['source']
 #
 #		msg=MIMEText(text.encode('utf-8'),'html','utf-8')
 #		msg['Subject']=u"宁关注的："+dicts['nickName']+u"发布微博啦"

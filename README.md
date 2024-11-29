@@ -5,7 +5,7 @@
 
 实时关注微博、B站、抖音、小红书某用户更新动态，并及时通过微信提醒
 
-详见文章：https://www.blain.top/p/wbdmonitor
+详见文章：https://www.blain.top/p/wbdxmonitor/
 
 有问题可通过博客内联系方式进行留言
 
